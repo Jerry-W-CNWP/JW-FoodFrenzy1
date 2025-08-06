@@ -80,6 +80,7 @@ public class Level : MonoBehaviour
         else
         {
             HUD.instance.OnGameLose();
+            //changes...
         }
     }
 }
