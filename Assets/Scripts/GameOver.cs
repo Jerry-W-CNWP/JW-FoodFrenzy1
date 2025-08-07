@@ -17,15 +17,17 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    if (!instance)
-    { 
-        instance = this; 
-        gameObject.SetActive(false); 
-        starsImage.enabled = false; 
-        scoreText.enabled = false; 
-        loseText.enabled = false; 
-        replayButton.gameObject.SetActive(false); 
-        doneButton.gameObject.SetActive(false); 
+        if (!instance)
+        {
+            instance = this;
+            gameObject.SetActive(false);
+            starsImage.enabled = false;
+            scoreText.enabled = false;
+            loseText.enabled = false;
+            replayButton.gameObject.SetActive(false);
+            doneButton.gameObject.SetActive(false);
+            replayButton.onClick.AddListener(OnReplayClicked);
+            doneButton.onClick.AddListener(OnDoneClicked);
     } 
     }
     public void ShowLose() 
@@ -63,7 +65,7 @@ public class GameOver : MonoBehaviour
 
     public void OnDoneClicked()
     {
-        
+        SceneManager.LoadScene("LevelSelect");
     }
     // Update is called once per frame
     void Update()
